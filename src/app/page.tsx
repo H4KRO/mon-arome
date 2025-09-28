@@ -1,5 +1,5 @@
-import Calculator from '@/components/calculator-simple';
-import Header from '@/components/header-simple';
+import Calculator from '@/components/calculator';
+import Header from '@/components/header';
 
 export default function Home() {
   return (

@@ -2,7 +2,7 @@
 
 import React from "react"
 import { MixingResults } from "@/lib/mixing-calculator"
-import { useTranslations } from "next-intl"
+import { useTranslation } from "react-i18next"
 
 interface BottlePreviewProps {
   results: MixingResults
@@ -10,8 +10,7 @@ interface BottlePreviewProps {
 }
 
 export default function BottlePreview({ results, className = "" }: BottlePreviewProps) {
-  const t = useTranslations('bottle')
-  const tResults = useTranslations('results')
+  const { t } = useTranslation()
 
   const { baseNeutral, baseNicotine, aroma, total } = results
 
@@ -22,7 +21,7 @@ export default function BottlePreview({ results, className = "" }: BottlePreview
 
   return (
     <div className={`space-y-4 ${className}`}>
-      <h3 className="text-lg font-semibold">{t('preview')}</h3>
+      <h3 className="text-lg font-semibold">{t('bottle.preview')}</h3>
       
       {/* Flacon visuel */}
       <div className="relative mx-auto w-32 h-48 bg-gray-200 dark:bg-gray-700 rounded-lg border-4 border-gray-300 dark:border-gray-600 overflow-hidden">
@@ -55,19 +54,19 @@ export default function BottlePreview({ results, className = "" }: BottlePreview
       <div className="space-y-2 text-sm">
         <div className="flex items-center space-x-2">
           <div className="w-4 h-4 bg-purple-400 dark:bg-purple-600 rounded"></div>
-          <span>{tResults('aroma')}: {aroma.toFixed(1)} {t('ml')} ({aromaPercent.toFixed(1)}%)</span>
+          <span>{t('results.aroma')}: {aroma.toFixed(1)} {t('bottle.ml')} ({aromaPercent.toFixed(1)}%)</span>
         </div>
         <div className="flex items-center space-x-2">
           <div className="w-4 h-4 bg-orange-400 dark:bg-orange-600 rounded"></div>
-          <span>{tResults('nicotine')}: {baseNicotine.toFixed(1)} {t('ml')} ({baseNicotinePercent.toFixed(1)}%)</span>
+          <span>{t('results.nicotine')}: {baseNicotine.toFixed(1)} {t('bottle.ml')} ({baseNicotinePercent.toFixed(1)}%)</span>
         </div>
         <div className="flex items-center space-x-2">
           <div className="w-4 h-4 bg-green-400 dark:bg-green-600 rounded"></div>
-          <span>{tResults('base')}: {baseNeutral.toFixed(1)} {t('ml')} ({baseNeutralPercent.toFixed(1)}%)</span>
+          <span>{t('results.base')}: {baseNeutral.toFixed(1)} {t('bottle.ml')} ({baseNeutralPercent.toFixed(1)}%)</span>
         </div>
         <div className="flex items-center space-x-2 font-semibold">
           <div className="w-4 h-4 bg-gray-400 dark:bg-gray-600 rounded border"></div>
-          <span>{tResults('total')}: {total.toFixed(1)} {t('ml')}</span>
+          <span>{t('results.total')}: {total.toFixed(1)} {t('bottle.ml')}</span>
         </div>
       </div>
     </div>
