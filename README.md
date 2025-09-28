@@ -1,36 +1,140 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Aroma - E-cigarette Mixing Calculator
 
-## Getting Started
+A modern, responsive web application for calculating e-liquid mixing ratios. Perfect for DIY e-cigarette enthusiasts who want to create their own custom e-liquids with precise nicotine and flavor concentrations.
 
-First, run the development server:
+## 🌟 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Precise Mixing Calculations**: Calculate exact amounts of base, nicotine, and flavor concentrates needed
+- **Visual Bottle Preview**: See a visual representation of your mix with color-coded layers
+- **Real-time Updates**: Calculations update automatically as you change input values
+- **Multi-language Support**: Available in English and French
+- **Dark/Light Theme**: Toggle between light and dark modes
+- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
+- **Input Validation**: Built-in validation to prevent invalid mixing ratios
+
+## 🛠️ Technologies Used
+
+- **Framework**: [Next.js 15](https://nextjs.org/) with App Router
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) v4
+- **Internationalization**: [i18next](https://www.i18next.com/) with [react-i18next](https://react.i18next.com/)
+- **Theme Management**: [next-themes](https://github.com/pacocoursey/next-themes)
+- **Language Detection**: [i18next-browser-languagedetector](https://github.com/i18next/i18next-browser-languagedetector)
+- **Build Tool**: [Turbopack](https://turbo.build/pack) for faster development builds
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd mon-arome
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+4. **Open your browser**
+   
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
+
+## 📱 How to Use
+
+1. **Set your desired final volume** (in ml)
+2. **Enter your target nicotine strength** (in mg/ml)
+3. **Specify the aroma percentage** you want to use
+4. **Set your nicotine base strength** (in mg/ml)
+5. **View the results** showing exact amounts needed for each component
+6. **See the visual preview** of your mix in the bottle representation
+
+## 🌐 Internationalization
+
+The app supports multiple languages:
+- **English** (default)
+- **Français** (French)
+
+Language preference is automatically detected from your browser settings and stored in localStorage.
+
+## 🎨 Theming
+
+Switch between light and dark themes using the theme toggle button. Your preference is automatically saved and restored on subsequent visits.
+
+## 🏗️ Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── layout.tsx         # Root layout with providers
+│   └── page.tsx           # Home page
+├── components/            # React components
+│   ├── calculator.tsx     # Main calculator component
+│   ├── bottle-preview.tsx # Visual bottle preview
+│   ├── header.tsx         # App header with navigation
+│   ├── language-toggle.tsx # Language switcher
+│   └── theme-toggle.tsx   # Theme switcher
+├── i18n/                  # Internationalization
+│   ├── index.ts          # i18next configuration
+│   └── locales/          # Translation files
+│       ├── en.json       # English translations
+│       └── fr.json       # French translations
+└── lib/                   # Utility functions
+    └── mixing-calculator.ts # Mixing calculation logic
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Available Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build the application for production
+- `npm run start` - Start the production server
+- `npm run lint` - Run ESLint for code quality checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Deployment
 
-## Learn More
+The easiest way to deploy is using [Vercel](https://vercel.com/):
 
-To learn more about Next.js, take a look at the following resources:
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy with zero configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The app is optimized for Vercel's platform and will automatically build and deploy.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🤝 Contributing
 
-## Deploy on Vercel
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is private and proprietary.
+
+## 🆘 Support
+
+If you encounter any issues or have questions, please open an issue in the repository.
+
+---
+
+**Happy Mixing!** 🧪💨

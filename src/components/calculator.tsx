@@ -7,6 +7,7 @@ import BottlePreview from "./bottle-preview"
 
 export default function Calculator() {
   const { t } = useTranslation()
+  const [isClient, setIsClient] = useState(false)
   
   const [inputs, setInputs] = useState<MixingInputs>({
     finalVolume: 30,
@@ -24,7 +25,12 @@ export default function Calculator() {
 
   const [errors, setErrors] = useState<string[]>([])
 
-  // Calcul automatique à chaque changement
+  // Avoid hydration error
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  // Automatic calculation on every change
   useEffect(() => {
     const validationErrors = validateInputs(inputs)
     setErrors(validationErrors)
@@ -53,17 +59,19 @@ export default function Calculator() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-8">{t('calculator.title')}</h2>
+      <h2 className="text-3xl font-bold text-center mb-8">
+        {isClient ? t('calculator.title') : 'Calculateur de Mélange'}
+      </h2>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Formulaire de saisie */}
+        {/* Input form */}
         <div className="space-y-6">
           <div className="bg-card p-6 rounded-lg border shadow-sm">
             <div className="space-y-4">
-              {/* Volume final */}
+              {/* Final volume */}
               <div>
                 <label htmlFor="finalVolume" className="block text-sm font-medium mb-2">
-                  {t('calculator.finalVolume')}
+                  {isClient ? t('calculator.finalVolume') : 'Volume final (ml)'}
                 </label>
                 <input
                   id="finalVolume"
@@ -77,10 +85,10 @@ export default function Calculator() {
                 />
               </div>
 
-              {/* Taux de nicotine souhaité */}
+              {/* Desired nicotine strength */}
               <div>
                 <label htmlFor="nicotineStrength" className="block text-sm font-medium mb-2">
-                  {t('calculator.nicotineStrength')}
+                  {isClient ? t('calculator.nicotineStrength') : 'Taux de nicotine souhaité (mg/ml)'}
                 </label>
                 <input
                   id="nicotineStrength"
@@ -94,10 +102,10 @@ export default function Calculator() {
                 />
               </div>
 
-              {/* Pourcentage d'arôme */}
+              {/* Aroma percentage */}
               <div>
                 <label htmlFor="aromaPercentage" className="block text-sm font-medium mb-2">
-                  {t('calculator.aromaPercentage')}
+                  {isClient ? t('calculator.aromaPercentage') : 'Pourcentage d\'arôme (%)'}
                 </label>
                 <input
                   id="aromaPercentage"
@@ -111,10 +119,10 @@ export default function Calculator() {
                 />
               </div>
 
-              {/* Taux de nicotine de la base */}
+              {/* Base nicotine strength */}
               <div>
                 <label htmlFor="baseNicotine" className="block text-sm font-medium mb-2">
-                  {t('calculator.baseNicotine')}
+                  {isClient ? t('calculator.baseNicotine') : 'Taux de nicotine de la base (mg/ml)'}
                 </label>
                 <input
                   id="baseNicotine"
@@ -128,19 +136,19 @@ export default function Calculator() {
                 />
               </div>
 
-              {/* Boutons */}
+              {/* Buttons */}
               <div className="flex space-x-4 pt-4">
                 <button
                   onClick={resetInputs}
                   className="flex-1 px-4 py-2 border border-input rounded-md bg-background hover:bg-accent transition-colors"
                 >
-                  {t('calculator.reset')}
+                  {isClient ? t('calculator.reset') : 'Réinitialiser'}
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Messages d'erreur */}
+          {/* Error messages */}
           {errors.length > 0 && (
             <div className="bg-destructive/10 border border-destructive/20 rounded-md p-4">
               <h4 className="font-medium text-destructive mb-2">Erreurs :</h4>
@@ -153,30 +161,32 @@ export default function Calculator() {
           )}
         </div>
 
-        {/* Résultats et prévisualisation */}
+        {/* Results and preview */}
         <div className="space-y-6">
-          {/* Prévisualisation du flacon */}
+          {/* Bottle preview */}
           <BottlePreview results={results} />
 
-          {/* Résultats détaillés */}
+          {/* Detailed results */}
           <div className="bg-card p-6 rounded-lg border shadow-sm">
-            <h3 className="text-lg font-semibold mb-4">{t('results.title')}</h3>
+            <h3 className="text-lg font-semibold mb-4">
+              {isClient ? t('results.title') : 'Résultats'}
+            </h3>
             <div className="space-y-3">
               <div className="flex justify-between items-center">
-                <span>{t('results.aroma')}:</span>
+                <span>{isClient ? t('results.aroma') : 'Arôme'}:</span>
                 <span className="font-mono">{results.aroma.toFixed(1)} ml</span>
               </div>
               <div className="flex justify-between items-center">
-                <span>{t('results.nicotine')}:</span>
+                <span>{isClient ? t('results.nicotine') : 'Nicotine'}:</span>
                 <span className="font-mono">{results.baseNicotine.toFixed(1)} ml</span>
               </div>
               <div className="flex justify-between items-center">
-                <span>{t('results.base')}:</span>
+                <span>{isClient ? t('results.base') : 'Base'}:</span>
                 <span className="font-mono">{results.baseNeutral.toFixed(1)} ml</span>
               </div>
               <hr className="border-border" />
               <div className="flex justify-between items-center font-semibold">
-                <span>{t('results.total')}:</span>
+                <span>{isClient ? t('results.total') : 'Total'}:</span>
                 <span className="font-mono">{results.total.toFixed(1)} ml</span>
               </div>
             </div>
