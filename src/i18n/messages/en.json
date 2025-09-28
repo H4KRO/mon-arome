@@ -1,0 +1,34 @@
+{
+  "app": {
+    "title": "My Aroma",
+    "description": "E-cigarette mixing calculator"
+  },
+  "calculator": {
+    "title": "Mixing Calculator",
+    "finalVolume": "Final volume (ml)",
+    "nicotineStrength": "Desired nicotine strength (mg/ml)",
+    "aromaPercentage": "Concentrated aroma percentage (%)",
+    "baseNicotine": "Nicotine base (mg/ml)",
+    "calculate": "Calculate",
+    "reset": "Reset"
+  },
+  "results": {
+    "title": "Mix composition",
+    "base": "Neutral base",
+    "nicotine": "Nicotine base",
+    "aroma": "Concentrated aroma",
+    "total": "Total"
+  },
+  "bottle": {
+    "preview": "Bottle preview",
+    "ml": "ml"
+  },
+  "theme": {
+    "light": "Light mode",
+    "dark": "Dark mode"
+  },
+  "language": {
+    "french": "Français",
+    "english": "English"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "app": {
+    "title": "Mon Arôme",
+    "description": "Calculateur de mélanges pour cigarette électronique"
+  },
+  "calculator": {
+    "title": "Calculateur de Mélange",
+    "finalVolume": "Volume final (ml)",
+    "nicotineStrength": "Taux de nicotine souhaité (mg/ml)",
+    "aromaPercentage": "Pourcentage d'arôme concentré (%)",
+    "baseNicotine": "Base nicotine (mg/ml)",
+    "calculate": "Calculer",
+    "reset": "Réinitialiser"
+  },
+  "results": {
+    "title": "Composition du mélange",
+    "base": "Base neutre",
+    "nicotine": "Base nicotine",
+    "aroma": "Arôme concentré",
+    "total": "Total"
+  },
+  "bottle": {
+    "preview": "Aperçu du flacon",
+    "ml": "ml"
+  },
+  "theme": {
+    "light": "Mode jour",
+    "dark": "Mode nuit"
+  },
+  "language": {
+    "french": "Français",
+    "english": "English"
+  }
+}
